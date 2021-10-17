@@ -1,11 +1,11 @@
-const iconElement = document.querySelector('.weather-icon');
-const tempElement = document.querySelector('.temperature-value p');
-const descElement = document.querySelector('.temperature-description p');
+const iconElement = document.querySelector(".weather-icon");
+const tempElement = document.querySelector(".temperature-value p");
+const descElement = document.querySelector(".temperature-description p");
 
 // App data
 const weather = {};
 weather.temperature = {
-  unit: 'celsius',
+  unit: "celsius",
 };
 
 // Change to 'F' for Fahrenheit
@@ -19,8 +19,25 @@ const key = `${CONFIG.weatherKey}`;
 setPosition();
 
 function setPosition(position) {
-
-  getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
+  if (!CONFIG.trackLocation || !navigator.geolocation) {
+    if (CONFIG.trackLocation) {
+      console.error("Geolocation not available");
+    }
+    getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      getWeather(
+        pos.coords.latitude.toFixed(3),
+        pos.coords.longitude.toFixed(3)
+      );
+    },
+    (err) => {
+      console.error(err);
+      getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
+    }
+  );
 }
 
 // Get the Weather data
@@ -37,7 +54,7 @@ function getWeather(latitude, longitude) {
     .then(function (data) {
       let celsius = Math.floor(data.main.temp - KELVIN);
       weather.temperature.value =
-        tempUnit == 'C' ? celsius : (celsius * 9) / 5 + 32;
+        tempUnit == "C" ? celsius : (celsius * 9) / 5 + 32;
       weather.description = data.weather[0].description;
       weather.iconId = data.weather[0].icon;
     })

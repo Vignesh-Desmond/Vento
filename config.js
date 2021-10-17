@@ -1,16 +1,10 @@
 //
-//  _   _            _        
-// | | | |          | |       
-// | | | | ___ _ __ | |_ ___  
-// | | | |/ _ \ '_ \| __/ _ \ 
+//  _   _            _
+// | | | |          | |
+// | | | | ___ _ __ | |_ ___
+// | | | |/ _ \ '_ \| __/ _ \
 // \ \_/ /  __/ | | | || (_) |
-//  \___/ \___|_| |_|\__\___/ 
-//                            
-//    Redesinged Bento fork!                
-// 
-// ┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
-// │  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││
-// └─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘
+//  \___/ \___|_| |_|\__\___/
 
 const CONFIG = {
   // ┌┐ ┌─┐┌─┐┬┌─┐┌─┐
@@ -18,25 +12,25 @@ const CONFIG = {
   // └─┘┴ ┴└─┘┴└─┘└─┘
 
   // General
-  name: 'my friend',
+  name: "Desmond",
   imageBackground: true,
   openInNewTab: true,
 
   // Greetings
-  greetingMorning: 'Good morning,',
-  greetingAfternoon: 'Hello,',
-  greetingEvening: 'Good night,',
-  greetingNight: 'You should go to sleep,',
+  greetingMorning: "Good morning,",
+  greetingAfternoon: "Hello,",
+  greetingEvening: "Good night,",
+  greetingNight: "You should go to sleep,",
 
   // Weather
   // Use openweathermap.org
-  weatherKey: 'XXX',
-  weatherIcons: 'OneDark', // 'Nord', 'Dark', 'White'
-  weatherUnit: 'C',
+  weatherKey: "8088996cb990beca4e385c7c4790f5d7",
+  weatherIcons: "Nord", // 'Nord', 'Dark', 'White'
+  weatherUnit: "C",
   // Use https://www.latlong.net/
-  weatherLatitude: 'XXX',
-  weatherLongitude: 'XXX',
-  
+  trackLocation: true,
+  weatherLatitude: 13.128673,
+  weatherLongitude: 80.229969,
 
   // ┌─┐┌─┐┬─┐┌┬┐┌─┐
   // │  ├─┤├┬┘ ││└─┐
@@ -45,40 +39,40 @@ const CONFIG = {
   // Links
   cards: [
     {
-      id: '1',
-      name: 'Github',
-      icon: 'github',
-      link: 'https://github.com/',
+      id: "1",
+      name: "Github",
+      icon: "github",
+      link: "https://github.com/",
     },
     {
-      id: '2',
-      name: 'Mail',
-      icon: 'mail',
-      link: 'https://mail.google.com/',
+      id: "3",
+      name: "Mail",
+      icon: "mail",
+      link: "https://mail.google.com/",
     },
     {
-      id: '3',
-      name: 'Todoist',
-      icon: 'twitch',
-      link: 'https://twitch.tv/',
+      id: "6",
+      name: "Todoist",
+      icon: "twitch",
+      link: "https://twitch.tv/",
     },
     {
-      id: '4',
-      name: 'Calendar',
-      icon: 'calendar',
-      link: 'https://calendar.google.com/calendar/r',
+      id: "4",
+      name: "LinkedIn",
+      icon: "linkedin",
+      link: "https://www.linkedin.com",
     },
     {
-      id: '5',
-      name: 'Reddit',
-      icon: 'bookmark',
-      link: 'https://reddit.com',
+      id: "5",
+      name: "Twitter",
+      icon: "twitter",
+      link: "https://twitter.com",
     },
     {
-      id: '6',
-      name: 'Youtube',
-      icon: 'youtube',
-      link: 'https://youtube.com/',
+      id: "2",
+      name: "Youtube",
+      icon: "youtube",
+      link: "https://youtube.com/",
     },
   ],
 
@@ -87,45 +81,45 @@ const CONFIG = {
   // ┴─┘┴└─┘ ┴ └─┘
 
   //Icons
-  firstListIcon: 'key',
-  secondListIcon: 'tool',
+  firstListIcon: "book",
+  secondListIcon: "tool",
 
   // Links
   lists: {
     firstList: [
       {
-        name: 'Twitter',
-        link: 'https://twitter.com/',
+        name: "StackOverFlow",
+        link: "https://stackoverflow.com/",
       },
       {
-        name: 'THN',
-        link: 'https://thehackernews.com/',
+        name: "SSN LMS",
+        link: "http://lms.ssn.edu.in/",
       },
       {
-        name: 'Its FOSS',
-        link: 'https://itsfoss.com/',
+        name: "Overleaf",
+        link: "https://www.overleaf.com/",
       },
       {
-        name: 'EFF',
-        link: 'https://www.eff.org/',
+        name: "EFF",
+        link: "https://www.eff.org/",
       },
     ],
     secondList: [
       {
-        name: 'Telegram',
-        link: 'https://webk.telegram.org',
+        name: "Telegram",
+        link: "https://webk.telegram.org",
       },
       {
-        name: 'Github',
-        link: 'https://github.com/',
+        name: "Github",
+        link: "https://github.com/",
       },
       {
-        name: 'Hetzner',
-        link: 'https://hetzner.com/',
+        name: "Hetzner",
+        link: "https://hetzner.com/",
       },
       {
-        name: 'Protonmail',
-        link: 'https://mail.protonmail.com/',
+        name: "Protonmail",
+        link: "https://mail.protonmail.com/",
       },
     ],
   },

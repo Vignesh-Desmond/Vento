@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
 
 /* V A R I A B L E S */
 
@@ -10,11 +10,11 @@
   --fses: 2vh; /* Links List */
 
   /* Light theme  */
-  --accent: #696969; /* Hover color */
-  --bg: #ffffff00; /* Background color */
-  --sbg: #ffffff2d; /* Cards color */
+  --accent: #2d2d2d;
+  --bg: #000;
+  --sbg: #20212b;
+  --fg: #d8d8d8;
 
-  --fg: #272727; /* Foreground color */
   --sfg: #272727; /* Sceondary Foreground color */
 
   /* Image background  */
@@ -25,32 +25,25 @@
     to make the filter to your own */
 
   --imgbg: url(assets/background.jpg);
-  --imgcol: linear-gradient(
-    rgba(255, 255, 255, 0.103),
-    rgba(255, 255, 255, 0.103)
-  ); /* Filter color */
+  --imgcol: linear-gradient(rgba(32, 33, 43, 0.9), rgba(32, 33, 43, 0.5));
 }
 
 /* Dark theme  */
 .darktheme {
-  --accent: #777777; /* Hover color */
-  --bg: #19171a; /* Background color */
-  --sbg: #201e212d; /* Cards color */
-  --fg: #d8dee9; /* Foreground color */
+  --accent: #5e81ac;
+  --bg: #20212b;
+  --sbg: #20212b;
+  --fg: #d8dee9;
   --sfg: #d8d8d8; /* Secondary Foreground color */
-  --imgcol: linear-gradient(
-    rgba(0, 0, 0, 0.603),
-    rgba(0, 0, 0, 0.603)
-  ); /* Filter color */
+  --imgcol: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 }
-
 /* S T Y L E S */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   transition: 0.1s ease-out;
 }
 
@@ -96,7 +89,7 @@ body {
 
 .card {
   backdrop-filter: blur(25px);
-  background-color: var(--sbg); 
+  background-color: var(--sbg);
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.445);
   border-radius: 5px;
 }
@@ -274,7 +267,6 @@ body {
 .list__link:hover {
   background-color: var(--accent);
   color: var(--sfg);
-  
 }
 
 /* M E D I A - Q U E R I E S */
