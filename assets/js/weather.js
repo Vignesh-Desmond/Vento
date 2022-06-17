@@ -1,14 +1,17 @@
-const iconElement = document.querySelector(".weather-icon");
-const tempElement = document.querySelector(".temperature-value p");
-const descElement = document.querySelector(".temperature-description p");
+// ┬ ┬┌─┐┌─┐┌┬┐┬ ┬┌─┐┬─┐
+// │││├┤ ├─┤ │ ├─┤├┤ ├┬┘
+// └┴┘└─┘┴ ┴ ┴ ┴ ┴└─┘┴└─
+
+const iconElement = document.querySelector('.weatherIcon');
+const tempElement = document.querySelector('.weatherValue p');
+const descElement = document.querySelector('.weatherDescription p');
 
 // App data
 const weather = {};
 weather.temperature = {
-  unit: "celsius",
+    unit: "celsius",
 };
 
-// Change to 'F' for Fahrenheit
 var tempUnit = CONFIG.weatherUnit;
 
 const KELVIN = 273.15;
@@ -19,53 +22,65 @@ const key = `${CONFIG.weatherKey}`;
 setPosition();
 
 function setPosition(position) {
-  if (!CONFIG.trackLocation || !navigator.geolocation) {
-    if (CONFIG.trackLocation) {
-      console.error("Geolocation not available");
+    if (!CONFIG.trackLocation || !navigator.geolocation) {
+        if (CONFIG.trackLocation) {
+<<<<<<< HEAD
+            console.error("Geolocation not available");
+        }
+        getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
+=======
+      console.error('Geolocation not available');
     }
-    getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
-    return;
-  }
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      getWeather(
-        pos.coords.latitude.toFixed(3),
-        pos.coords.longitude.toFixed(3)
-      );
-    },
-    (err) => {
-      console.error(err);
-      getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
+    getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
+>>>>>>> 8bb44cf201f3fe1c9032181d60be5a7672a61b80
+        return;
     }
-  );
+    navigator.geolocation.getCurrentPosition(
+        (pos) => {
+            getWeather(
+                pos.coords.latitude.toFixed(3),
+                pos.coords.longitude.toFixed(3)
+            );
+        },
+        (err) => {
+            console.error(err);
+<<<<<<< HEAD
+            getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
+=======
+      getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
+>>>>>>> 8bb44cf201f3fe1c9032181d60be5a7672a61b80
+        }
+    );
 }
 
 // Get the Weather data
 function getWeather(latitude, longitude) {
-  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${CONFIG.language}&appid=${key}`;
 
-  console.log(api);
+    console.log(api);
 
-  fetch(api)
-    .then(function (response) {
-      let data = response.json();
-      return data;
-    })
-    .then(function (data) {
-      let celsius = Math.floor(data.main.temp - KELVIN);
-      weather.temperature.value =
-        tempUnit == "C" ? celsius : (celsius * 9) / 5 + 32;
-      weather.description = data.weather[0].description;
-      weather.iconId = data.weather[0].icon;
-    })
-    .then(function () {
-      displayWeather();
-    });
+    fetch(api)
+        .then(function (response) {
+            let data = response.json();
+            return data;
+        })
+        .then(function (data) {
+            let celsius = Math.floor(data.main.temp - KELVIN);
+            weather.temperature.value =
+                tempUnit == "C" ? celsius : (celsius * 9) / 5 + 32;
+            weather.description = data.weather[0].description;
+            weather.iconId = data.weather[0].icon;
+        })
+        .then(function () {
+            displayWeather();
+        });
 }
 
 // Display Weather info
 function displayWeather() {
-  iconElement.innerHTML = `<img src="assets/icons/${CONFIG.weatherIcons}/${weather.iconId}.png"/>`;
-  tempElement.innerHTML = `${weather.temperature.value}°<span class="darkfg">${tempUnit}</span>`;
-  descElement.innerHTML = weather.description;
+    iconElement.innerHTML = `<img src="assets/icons/${CONFIG.weatherIcons}/${weather.iconId}.png"/>`;
+    tempElement.innerHTML = `${weather.temperature.value.toFixed(
+        0
+    )}°<span class="darkfg">${tempUnit}</span>`;
+    descElement.innerHTML = weather.description;
 }
